@@ -121,7 +121,7 @@ Kelly's L\* is a property of the asset's drift and volatility, not of the levera
 | *Same 1.33× target, same Bitcoin path, three financing architectures. 2factor tracks the ideal closely (financing cost (rf + 1%)/3 per Jr equity); traditional LETF financing surrenders most of the leverage benefit ((rf + 18%)/3, BITX-implied).* |
 
 
-The architectural details for BTC-Jr specifically — how the funding mechanism works, how the tranches behave, how the financing cost is bounded — are in the *Durable Leverage* paper. BTC-Jr's cost of leverage is anchored to stable-yield demand, not to short demand. That cost spread, applied to a 1.33× leveraged position on a positive-drift asset, is what produces the outperformance the 10-year thought experiment shows.
+The architectural details for BTC-Jr specifically — how the funding mechanism works, how the tranches behave, how the financing cost is bounded — are in the [*Durable Leverage* paper](https://drive.google.com/file/d/14E0phxNhliy_Qc-kBPPbRAkaedBxe3ma/view?usp=sharing). BTC-Jr's cost of leverage is anchored to stable-yield demand, not to short demand. That cost spread, applied to a 1.33× leveraged position on a positive-drift asset, is what produces the outperformance the 10-year thought experiment shows.
 
 BTC-Jr at 1.33× delivers what the thought experiment imagined. It is **sensible** — Kelly bounds say modest leverage on a positive-drift asset is growth-maximizing. It is **simple** — no hidden directional bet, no regime-dependent strategy, no upside cap. It is **scrutable** — verifiable mechanism, transparent financing cost, bounded leverage ratio. It is **reliable** — works across regimes, not just bullish ones; doesn't depend on continuing positive funding; doesn't blow up in volatility events. None of the three yield categories is all four of these. BTC-Jr is.
 
@@ -141,7 +141,7 @@ The pragmatic answer to "how do I get more Bitcoin over time" has been the same 
 
 ---
 
-*Specific backtest methodology and numerical results are in the* Durable Leverage *paper (Fragments Research, 2026). A companion analysis covers the comparison between BTC-Jr and MicroStrategy / Bitcoin-treasury vehicles as the leveraged-BTC-exposure workaround that emerged outside DeFi.*
+*Specific backtest methodology and numerical results are in the [Durable Leverage paper](https://drive.google.com/file/d/14E0phxNhliy_Qc-kBPPbRAkaedBxe3ma/view?usp=sharing) (Fragments Research, 2026). A companion analysis covers the comparison between BTC-Jr and MicroStrategy / Bitcoin-treasury vehicles as the leveraged-BTC-exposure workaround that emerged outside DeFi.*
 
 ---
 
