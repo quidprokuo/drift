@@ -13,4 +13,4 @@ Articles published here are discoverable from [2factor.finance/research](https:/
 
 ## Recent
 
-- [Moderate Leverage Outperforms Every BTC Yield Product](/btc-jr-vs-yield-products/) — Why the gap persists, and what changed.
+- [Moderate Leverage Outperforms Every BTC Yield Product]({{ "/btc-jr-vs-yield-products/" | relative_url }}) — Why the gap persists, and what changed.

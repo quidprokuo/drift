@@ -7,10 +7,12 @@ description: >-
   Drift publishes research from 2factor finance on the economics of leverage,
   perpetual tranching, and capital efficiency for buy-and-hold investors.
 
-# When you set up the custom domain, set this to "https://drift.2factor.finance"
-# Until then, leave it as your github.io URL so absolute links resolve correctly.
-url: "https://drift.2factor.finance"
-baseurl: ""
+# Current setup: project page at quidprokuo.github.io/drift/
+# When you set up the custom domain (drift.2factor.finance):
+#   - change url to "https://drift.2factor.finance"
+#   - change baseurl to ""
+url: "https://quidprokuo.github.io"
+baseurl: "/drift"
 
 # Author / publisher metadata used in OG tags
 author:
