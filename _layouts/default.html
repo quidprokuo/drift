@@ -54,16 +54,19 @@
 
     /* Site chrome — always dark */
     .site-header {
-      padding: 24px 0;
+      min-height: 64px;
       background: var(--header-bg);
       margin-bottom: 64px;
+      display: flex;
+      align-items: center;
     }
     .site-header_inner {
       max-width: 960px;
+      width: 100%;
       margin: 0 auto;
       padding: 0 32px;
       display: flex;
-      align-items: baseline;
+      align-items: center;
       gap: 16px;
     }
     .site-mark {
