@@ -1,0 +1,47 @@
+# Drift — 2factor finance research publication
+# Jekyll configuration
+
+title: Drift
+tagline: Research from 2factor finance.
+description: >-
+  Drift publishes research from 2factor finance on the economics of leverage,
+  perpetual tranching, and capital efficiency for buy-and-hold investors.
+
+# When you set up the custom domain, set this to "https://drift.2factor.finance"
+# Until then, leave it as your github.io URL so absolute links resolve correctly.
+url: "https://drift.2factor.finance"
+baseurl: ""
+
+# Author / publisher metadata used in OG tags
+author:
+  name: "2factor finance"
+  url: "https://2factor.finance"
+
+# OG/Twitter defaults — overridden per-article via front matter
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "article"
+      image: "https://frgs3.s3.us-west-1.amazonaws.com/2factor/2factor_thumb_2.jpg"
+
+# Use kramdown for GFM-style markdown (footnotes, tables, fenced code, etc.)
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+# Jekyll plugins — github-pages safelist supports these out of the box
+plugins:
+  - jekyll-seo-tag
+  - jekyll-feed
+
+# Don't include scaffolding files in the published site
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - .gitignore

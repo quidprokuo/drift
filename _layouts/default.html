@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | default: site.title }}</title>
+  {%- seo -%}
+
+  <link rel="icon" type="image/svg+xml"
+        href="https://frgs3.s3.us-west-1.amazonaws.com/fragments/favicon/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap">
+
+  <meta name="theme-color" content="#141413">
+
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #ffffff;
+      --text: #1f1f1e;
+      --text-soft: #5a5a58;
+      --text-mute: #888;
+      --border: #e5e5e3;
+      --link: #1d4ed8;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #141413;
+        --text: rgba(255, 255, 255, 0.87);
+        --text-soft: #aaa;
+        --text-mute: #777;
+        --border: #2a2a28;
+        --link: #60a5fa;
+      }
+    }
+    html { background: var(--bg); font-size: 16px; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 80px 24px; }
+    h1 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 44px;
+      font-weight: 700;
+      margin: 0 0 8px;
+    }
+    h2 {
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-mute);
+      margin: 64px 0 16px;
+    }
+    p { color: var(--text-soft); margin: 0 0 16px; }
+    a { color: var(--link); text-decoration: underline; text-underline-offset: 2px; }
+    ul { padding-left: 0; list-style: none; margin: 0; }
+    li { margin: 0 0 12px; color: var(--text); }
+    li a { color: var(--text); text-decoration: none; font-weight: 500; }
+    li a:hover { color: var(--link); }
+    li em { color: var(--text-soft); font-weight: 400; font-style: normal; }
+  </style>
+</head>
+<body>
+  <main class="container">
+    {{ content }}
+  </main>
+</body>
+</html>
