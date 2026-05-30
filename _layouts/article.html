@@ -9,13 +9,17 @@
   <!-- jekyll-seo-tag handles og: and twitter: meta tags based on front matter -->
   {%- seo -%}
 
-  <!-- Favicon (reuses 2factor.finance favicon) -->
-  <link rel="icon" type="image/svg+xml"
-        href="https://frgs3.s3.us-west-1.amazonaws.com/fragments/favicon/favicon.svg">
+  <!-- Favicon — exact set used on 2factor.finance for consistency -->
   <link rel="icon" type="image/png" sizes="96x96"
         href="https://frgs3.s3.us-west-1.amazonaws.com/fragments/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/svg+xml"
+        href="https://frgs3.s3.us-west-1.amazonaws.com/fragments/favicon/favicon.svg">
+  <link rel="shortcut icon"
+        href="https://frgs3.s3.us-west-1.amazonaws.com/fragments/favicon/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180"
         href="https://frgs3.s3.us-west-1.amazonaws.com/fragments/favicon/apple-touch-icon.png">
+  <link rel="manifest"
+        href="https://frgs3.s3.us-west-1.amazonaws.com/fragments/favicon/site.webmanifest">
 
   <!-- Fonts: Inter for body, Cormorant Garamond for titles (matches 2factor.finance) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -288,7 +292,7 @@
 
   <header class="site-header">
     <div class="site-header_inner">
-      <a class="site-mark" href="{{ '/' | absolute_url }}">Drift</a>
+      <a class="site-mark" href="{{ '/' | absolute_url }}">Drift &gt; Drag</a>
       <span class="site-tag">Research from 2factor finance</span>
       <a class="site-back" href="https://2factor.finance/research/">← 2factor.finance/research</a>
     </div>

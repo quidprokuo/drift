@@ -6,8 +6,16 @@
   <title>{{ page.title | default: site.title }}</title>
   {%- seo -%}
 
+  <link rel="icon" type="image/png" sizes="96x96"
+        href="https://frgs3.s3.us-west-1.amazonaws.com/fragments/favicon/favicon-96x96.png">
   <link rel="icon" type="image/svg+xml"
         href="https://frgs3.s3.us-west-1.amazonaws.com/fragments/favicon/favicon.svg">
+  <link rel="shortcut icon"
+        href="https://frgs3.s3.us-west-1.amazonaws.com/fragments/favicon/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180"
+        href="https://frgs3.s3.us-west-1.amazonaws.com/fragments/favicon/apple-touch-icon.png">
+  <link rel="manifest"
+        href="https://frgs3.s3.us-west-1.amazonaws.com/fragments/favicon/site.webmanifest">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -105,7 +113,7 @@
 
   <header class="site-header">
     <div class="site-header_inner">
-      <a class="site-mark" href="{{ site.baseurl }}/">Drift</a>
+      <a class="site-mark" href="{{ site.baseurl }}/">Drift &gt; Drag</a>
       <span class="site-tag">Research from 2factor finance</span>
       <a class="site-back" href="https://2factor.finance/research/">← 2factor.finance/research</a>
     </div>
