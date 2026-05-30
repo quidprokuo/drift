@@ -28,6 +28,22 @@
 
   <meta name="theme-color" content="#141413">
 
+  <!-- MathJax for LaTeX rendering — recognize $...$ for inline and $$...$$ for display -->
+  <script>
+    window.MathJax = {
+      tex: {
+        // Use \( \) for inline math only — leaves literal $ alone in prose
+        // ("$100M", "$1B" etc. are common and must not be parsed as math)
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
   <style>
     :root {
       color-scheme: light;
@@ -165,10 +181,21 @@
     .article_body h2 { font-size: 24px; margin-top: 2.4em; }
     .article_body h3 { font-size: 19px; }
 
-    .article_body p,
-    .article_body li {
+    .article_body p {
       font-size: 17px;
       line-height: 1.7;
+      margin: 0 0 1.2em;
+    }
+
+    .article_body li {
+      font-size: 17px;
+      line-height: 1.6;
+      margin: 0 0 0.4em;
+    }
+
+    .article_body ul,
+    .article_body ol {
+      padding-left: 1.4em;
       margin: 0 0 1.2em;
     }
 
@@ -182,12 +209,6 @@
       text-underline-offset: 2px;
     }
     .article_body a:hover { color: var(--link-hover); }
-
-    .article_body ul,
-    .article_body ol {
-      padding-left: 1.5em;
-      margin: 0 0 1.2em;
-    }
 
     .article_body blockquote {
       margin: 1.2em 0;

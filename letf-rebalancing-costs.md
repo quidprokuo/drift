@@ -43,11 +43,9 @@ Assume the following toy setup:
 
 Suppose the underlying rises 5% in one day. Because the LETF targets constant daily leverage, the rally causes the fund's leverage ratio to drift downward, and to restore 3× leverage the fund must increase exposure before the close. The toy rebalance approximation (derived later) gives:
 
-```math
-\Delta E \approx AUM \cdot L(L-1) \cdot r = $1B \cdot 3 \cdot 2 \cdot 0.05 = $300M
-```
-
-<br>
+$$
+\Delta E \approx AUM \cdot L(L-1) \cdot r = \$1B \cdot 3 \cdot 2 \cdot 0.05 = \$300M
+$$
 
 The LETF usually does not buy $300M of stock directly — it acquires synthetic exposure through swaps, futures, ETFs, or other derivatives. A dealer or counterparty sells the LETF +$300M of synthetic long exposure and economically inherits the opposite side: a −$300M synthetic short. To remain roughly market-neutral, the dealer then hedges by buying about +$300M of long exposure elsewhere — underlying shares, stock futures, ETFs, or additional swaps — leaving them approximately directionally flat.
 
@@ -172,7 +170,7 @@ In aggregate, the LETF rebalance is a structural wealth-transfer mechanism — p
 
 That asymmetry is what dealer absorption fundamentally *is*: the dealer sells time. They buy multi-day liquidity (cheap) and resell close-window liquidity (expensive) to the LETF. The 19% premium is the rent they extract for that time arbitrage.
 
-This is also why the empirical analysis above uses close-window $Q$ (~0.25% of ADV) rather than multi-day spot liquidity to measure mechanical pressure. The close-window value is the constraint that would actually bind a self-executing LETF; multi-day spot $Q$ is roughly an order of magnitude larger and would predict mechanical cost roughly an order of magnitude lower — no longer matching the empirical premium. The two values are real and distinct economic quantities binding two different actors: the LETF cannot escape close-window depth, the dealer is free of it. Take the close-window constraint away, and the dealer's economic role disappears.
+This is also why the empirical analysis above uses close-window \(Q\) (~0.25% of ADV) rather than multi-day spot liquidity to measure mechanical pressure. The close-window value is the constraint that would actually bind a self-executing LETF; multi-day spot \(Q\) is roughly an order of magnitude larger and would predict mechanical cost roughly an order of magnitude lower — no longer matching the empirical premium. The two values are real and distinct economic quantities binding two different actors: the LETF cannot escape close-window depth, the dealer is free of it. Take the close-window constraint away, and the dealer's economic role disappears.
 
 **Cross-check against empirical financing drag.** A natural reconciliation question: if the per-event costs predicted above are this large, why do published fund returns for 2× single-stock LETFs only show an annualized financing drag of roughly 19%? Naively annualizing the model's per-event range over 252 trading days would imply triple-digit annual cost — far higher than what's observed.
 
@@ -186,47 +184,39 @@ The 19% empirical figure is therefore strong indirect validation. A premium that
 
 **Analytical decomposition of the 19% premium.** The empirical premium can be reconstructed from first principles. The dealer's total cost decomposes into three pieces:
 
-```math
+$$
 s_{empirical} = f \cdot E[\text{mechanical pressure}] + s_{capital} + s_{margin}
-```
+$$
 
-<br>
+where \(f\) is the *dealer execution efficiency factor* — the fraction of the model's per-event cost that the dealer actually pays after optimal execution (multi-day spreading, internalization, alternative-venue routing, inventory management).
 
-where $f$ is the *dealer execution efficiency factor* — the fraction of the model's per-event cost that the dealer actually pays after optimal execution (multi-day spreading, internalization, alternative-venue routing, inventory management).
+*Step 1 — expected mechanical pressure.* Applying the per-event model to a 2× flagship single-stock LETF (AUM/ADV ≈ 20%, \(\sigma_u\) ≈ 4% daily, executable close-window ≈ 0.25% ADV), the per-event cost as a function of underlying daily move \(|r|\) is:
 
-*Step 1 — expected mechanical pressure.* Applying the per-event model to a 2× flagship single-stock LETF (AUM/ADV ≈ 20%, $\sigma_u$ ≈ 4% daily, executable close-window ≈ 0.25% ADV), the per-event cost as a function of underlying daily move $|r|$ is:
-
-```math
+$$
 C(r) \approx 1.01 \cdot |r|^{1.5} + 3.20 \cdot |r|^2
-```
+$$
 
-<br>
+(% of AUM, \(|r|\) in decimal form — the first term is slippage from the square-root impact model, the second is front-running scaling linearly with stress). Integrating over the daily move distribution with \(r \sim N(0, \sigma_u^2)\):
 
-(% of AUM, $|r|$ in decimal form — the first term is slippage from the square-root impact model, the second is front-running scaling linearly with stress). Integrating over the daily move distribution with $r \sim N(0, \sigma_u^2)$:
-
-```math
+$$
 E[C(r)] \approx 1.01 \cdot E[|r|^{1.5}] + 3.20 \cdot E[r^2] \approx 1.3\% \text{ of AUM per day}
-```
-
-<br>
+$$
 
 Annualized over 252 trading days: roughly **340% per year**. This is the upper bound — what the LETF would pay executing naively in the closing window every day.
 
-*Step 2 — dealer execution efficiency.* Dealers absorb most of this pressure through skilled execution. An implied $f \approx 0.045$ — dealers achieve roughly a 20× cost reduction vs. naive single-day execution — is plausible given multi-day spreading (3–5×), internalization against other client flows (2–3×), and venue diversification (1.5–2×). Compounded, these can reasonably reach 15–20× total efficiency. At $f = 0.045$: realized hedging cost ≈ **15% annualized**.
+*Step 2 — dealer execution efficiency.* Dealers absorb most of this pressure through skilled execution. An implied \(f \approx 0.045\) — dealers achieve roughly a 20× cost reduction vs. naive single-day execution — is plausible given multi-day spreading (3–5×), internalization against other client flows (2–3×), and venue diversification (1.5–2×). Compounded, these can reasonably reach 15–20× total efficiency. At \(f = 0.045\): realized hedging cost ≈ **15% annualized**.
 
 *Step 3 — capital, funding, and margin.* Balance-sheet usage (~2–3% for RWA-multiplied equity exposure), hedging-inventory funding spread (~1%), and competitive margin (~1%). Total ≈ **4%**.
 
 *Reconciliation:*
 
-```math
+$$
 s \approx 0.045 \cdot 340\% + 4\% \approx 15\% + 4\% \approx 19\%
-```
+$$
 
-<br>
+Matches the observed empirical premium. The decomposition is internally consistent — and the only material assumption is the efficiency factor \(f\), which sits in a range consistent with what optimal-execution literature finds for predictable institutional flows.
 
-Matches the observed empirical premium. The decomposition is internally consistent — and the only material assumption is the efficiency factor $f$, which sits in a range consistent with what optimal-execution literature finds for predictable institutional flows.
-
-**What this predicts.** The two-orders-of-magnitude divergence between single-stock premiums (~19%) and equity-index premiums (~0.8%) is mostly $f$. For equity indices, deep S&P/Nasdaq futures markets give dealers $f \approx 0.5$ or higher — they hedge most of the LETF flow directly against the broad futures bid-ask, with minimal residual impact. For single-stock underlyings, $f$ drops to ~0.05 because the deepest available hedge market is the underlying itself, and the rebalancing flow is large relative to its closing-window depth. The same framework, applied to different $f$, generates the observed gap.
+**What this predicts.** The two-orders-of-magnitude divergence between single-stock premiums (~19%) and equity-index premiums (~0.8%) is mostly \(f\). For equity indices, deep S&P/Nasdaq futures markets give dealers \(f \approx 0.5\) or higher — they hedge most of the LETF flow directly against the broad futures bid-ask, with minimal residual impact. For single-stock underlyings, \(f\) drops to ~0.05 because the deepest available hedge market is the underlying itself, and the rebalancing flow is large relative to its closing-window depth. The same framework, applied to different \(f\), generates the observed gap.
 
 ### Implication: structural inefficiency
 
@@ -276,27 +266,21 @@ Let:
 
 For a daily-reset LETF, a useful approximation is:
 
-```math
+$$
 \Delta E \approx AUM \cdot L(L - 1)r
-```
-
-<br>
+$$
 
 For a 3x LETF:
 
-```math
+$$
 L(L - 1) = 3(2) = 6
-```
-
-<br>
+$$
 
 So:
 
-```math
+$$
 \Delta E \approx 6 \cdot AUM \cdot r
-```
-
-<br>
+$$
 
 Example:
 
@@ -304,11 +288,9 @@ Example:
 - Leverage = 3x
 - Underlying move = +5%
 
-```math
+$$
 \Delta E = 1B \cdot 6 \cdot 0.05 = 300M
-```
-
-<br>
+$$
 
 The LETF must buy approximately $300M of additional exposure.
 
@@ -324,11 +306,9 @@ Let:
 - `|ΔE|` = absolute rebalance size
 - `p` = participation rate
 
-```math
+$$
 p = |\Delta E|/Q
-```
-
-<br>
+$$
 
 Interpretation:
 
@@ -346,11 +326,9 @@ Interpretation:
 
 A common toy approximation for market impact is square-root impact:
 
-```math
+$$
 I = \sigma \sqrt{|\Delta E|/Q}
-```
-
-<br>
+$$
 
 Where:
 
@@ -380,53 +358,41 @@ Assume:
 
 Required rebalance:
 
-```math
+$$
 \Delta E = AUM \cdot L(L - 1)r
-```
+$$
 
-<br>
-
-```math
+$$
 \Delta E = 1B \cdot 6 \cdot 0.05 = 300M
-```
-
-<br>
+$$
 
 The LETF must buy $300M of exposure.
 
 Participation rate:
 
-```math
+$$
 p = 300M/100M = 3
-```
-
-<br>
+$$
 
 The LETF needs to trade 300% of available rebalance-window liquidity.
 
 Impact estimate:
 
-```math
+$$
 I = 0.04 \sqrt{3} \approx 6.9\%
-```
-
-<br>
+$$
 
 Dollar slippage:
 
-```math
+$$
 300M \cdot 6.9\% \approx 20.7M
-```
-
-<br>
+$$
 
 So, under these assumptions, a single rebalance could cost roughly:
 
-```math
-$20.7M
-```
-
-<br>
+$$
+\$20.7M
+$$
 
 in execution impact alone.
 
@@ -436,45 +402,39 @@ in execution impact alone.
 
 Anticipatory flow adds a linear impact term to the cost model:
 
-```math
+$$
 I_f = \beta \cdot p
-```
+$$
 
-<br>
-
-where $\beta$ is the front-running coefficient (calibrated at ~1% per 100% liquidity stress) and $p$ is the participation rate. Combined with the square-root slippage term, total expected impact is $I_{total} = \sigma\sqrt{p} + \beta p$. Applied to the toy example at $p = 3$: $I_f = 3\%$ of rebalance notional, bringing total impact to ~9.9% and pushing per-event dollar cost to ~$29.7M.
+where \(\beta\) is the front-running coefficient (calibrated at ~1% per 100% liquidity stress) and \(p\) is the participation rate. Combined with the square-root slippage term, total expected impact is \(I_{total} = \sigma\sqrt{p} + \beta p\). Applied to the toy example at \(p = 3\): \(I_f = 3\%\) of rebalance notional, bringing total impact to ~9.9% and pushing per-event dollar cost to ~$29.7M.
 
 ---
 
 ## Refining "Executable Closing-Window Liquidity"
 
-The empirical section above used a single ~0.25% of ADV figure for healthy executable close-window liquidity. In practice $Q$ decomposes into several layers, none of which are fully additive:
+The empirical section above used a single ~0.25% of ADV figure for healthy executable close-window liquidity. In practice \(Q\) decomposes into several layers, none of which are fully additive:
 
-```math
+$$
 Q \approx Q_{shares} + Q_{futures} + Q_{options} + Q_{swaps} + Q_{dealer-balance-sheet}
-```
-
-<br>
+$$
 
 | Component | Meaning |
 |---|---|
-| $Q_{shares}$ | Realistically executable stock liquidity near rebalance window |
-| $Q_{futures}$ | Available futures depth |
-| $Q_{options}$ | Delta-adjusted options liquidity |
-| $Q_{swaps}$ | Additional synthetic exposure dealers warehouse |
-| $Q_{dealer-balance-sheet}$ | Incremental inventory/risk dealers absorb |
+| \(Q_{shares}\) | Realistically executable stock liquidity near rebalance window |
+| \(Q_{futures}\) | Available futures depth |
+| \(Q_{options}\) | Delta-adjusted options liquidity |
+| \(Q_{swaps}\) | Additional synthetic exposure dealers warehouse |
+| \(Q_{dealer-balance-sheet}\) | Incremental inventory/risk dealers absorb |
 
 These components are highly correlated and often rely on the same dealer balance sheets, so they deteriorate simultaneously during stress. A more realistic stressed approximation:
 
-```math
+$$
 Q_{stress} \approx \lambda \cdot \min(Q_{shares}, Q_{dealer}, Q_{derivatives})
-```
+$$
 
-<br>
+where \(\lambda\) is a stress-liquidity haircut and the minimum term dominates during volatility spikes — effective liquidity is constrained by dealer risk tolerance, not headline market capitalization.
 
-where $\lambda$ is a stress-liquidity haircut and the minimum term dominates during volatility spikes — effective liquidity is constrained by dealer risk tolerance, not headline market capitalization.
-
-$Q_{effective}$ is also state-dependent: it varies with volatility, dealer risk tolerance, market depth, and funding conditions. During stress, all four inputs tighten simultaneously — volatility rises, dealer balance sheets tighten, liquidity providers reduce inventory, executable depth shrinks. At the same moment, $|\Delta E|$ increases because rebalance demand scales with volatility.
+\(Q_{effective}\) is also state-dependent: it varies with volatility, dealer risk tolerance, market depth, and funding conditions. During stress, all four inputs tighten simultaneously — volatility rises, dealer balance sheets tighten, liquidity providers reduce inventory, executable depth shrinks. At the same moment, \(|\Delta E|\) increases because rebalance demand scales with volatility.
 
 This is the structural asymmetry:
 
