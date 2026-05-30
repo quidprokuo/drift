@@ -17,24 +17,22 @@
 
   <style>
     :root {
-      color-scheme: light dark;
+      color-scheme: light;
       --bg: #ffffff;
       --text: #1f1f1e;
       --text-soft: #5a5a58;
       --text-mute: #888;
       --border: #e5e5e3;
       --link: #1d4ed8;
+      --link-hover: #1e40af;
+      --header-bg: #141413;
+      --header-text: rgba(255, 255, 255, 0.92);
+      --header-tag: #888;
+      --header-link: #aaa;
+      --header-link-hover: #fff;
     }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #141413;
-        --text: rgba(255, 255, 255, 0.87);
-        --text-soft: #aaa;
-        --text-mute: #777;
-        --border: #2a2a28;
-        --link: #60a5fa;
-      }
-    }
+
+    * { box-sizing: border-box; }
     html { background: var(--bg); font-size: 16px; }
     body {
       background: var(--bg);
@@ -45,19 +43,55 @@
       margin: 0;
       -webkit-font-smoothing: antialiased;
     }
-    .container { max-width: 720px; margin: 0 auto; padding: 80px 24px; }
-    h1 {
+
+    /* Site chrome — always dark */
+    .site-header {
+      padding: 24px 0;
+      background: var(--header-bg);
+      margin-bottom: 64px;
+    }
+    .site-header_inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+    .site-mark {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 44px;
       font-weight: 700;
-      margin: 0 0 8px;
+      font-size: 22px;
+      letter-spacing: 0.02em;
+      color: var(--header-text);
+      text-decoration: none;
+    }
+    .site-tag {
+      font-size: 13px;
+      color: var(--header-tag);
+      letter-spacing: 0.02em;
+    }
+    .site-back {
+      margin-left: auto;
+      font-size: 13px;
+      color: var(--header-link);
+      text-decoration: none;
+    }
+    .site-back:hover { color: var(--header-link-hover); }
+
+    /* Page body */
+    .container {
+      max-width: 960px;
+      margin: 0 auto 96px;
+      padding: 0 32px;
     }
     h2 {
       font-size: 13px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--text-mute);
-      margin: 64px 0 16px;
+      margin: 48px 0 16px;
+      font-weight: 600;
     }
     p { color: var(--text-soft); margin: 0 0 16px; }
     a { color: var(--link); text-decoration: underline; text-underline-offset: 2px; }
@@ -65,12 +99,21 @@
     li { margin: 0 0 12px; color: var(--text); }
     li a { color: var(--text); text-decoration: none; font-weight: 500; }
     li a:hover { color: var(--link); }
-    li em { color: var(--text-soft); font-weight: 400; font-style: normal; }
   </style>
 </head>
 <body>
+
+  <header class="site-header">
+    <div class="site-header_inner">
+      <a class="site-mark" href="{{ site.baseurl }}/">Drift</a>
+      <span class="site-tag">Research from 2factor finance</span>
+      <a class="site-back" href="https://2factor.finance/research/">← 2factor.finance/research</a>
+    </div>
+  </header>
+
   <main class="container">
     {{ content }}
   </main>
+
 </body>
 </html>

@@ -26,7 +26,7 @@
 
   <style>
     :root {
-      color-scheme: light dark;
+      color-scheme: light;
       --bg: #ffffff;
       --bg-soft: #f6f6f5;
       --text: #1f1f1e;
@@ -37,21 +37,13 @@
       --link-hover: #1e40af;
       --code-bg: #f3f3f1;
       --kbd-bg: #fafaf9;
-    }
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #141413;
-        --bg-soft: #1a1a19;
-        --text: rgba(255, 255, 255, 0.87);
-        --text-soft: #aaa;
-        --text-mute: #777;
-        --border: #2a2a28;
-        --link: #60a5fa;
-        --link-hover: #93c5fd;
-        --code-bg: #1a1a19;
-        --kbd-bg: #1a1a19;
-      }
+      /* Header always dark, regardless of body theme — branded contrast */
+      --header-bg: #141413;
+      --header-text: rgba(255, 255, 255, 0.92);
+      --header-tag: #888;
+      --header-link: #aaa;
+      --header-link-hover: #fff;
     }
 
     * { box-sizing: border-box; }
@@ -74,18 +66,18 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Site chrome */
+    /* Site chrome — always dark, regardless of body theme */
 
     .site-header {
       padding: 24px 0;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 48px;
+      background: var(--header-bg);
+      margin-bottom: 64px;
     }
 
     .site-header_inner {
-      max-width: 720px;
+      max-width: 960px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 32px;
       display: flex;
       align-items: baseline;
       gap: 16px;
@@ -96,31 +88,31 @@
       font-weight: 700;
       font-size: 22px;
       letter-spacing: 0.02em;
-      color: var(--text);
+      color: var(--header-text);
       text-decoration: none;
     }
 
     .site-tag {
       font-size: 13px;
-      color: var(--text-mute);
+      color: var(--header-tag);
       letter-spacing: 0.02em;
     }
 
     .site-back {
       margin-left: auto;
       font-size: 13px;
-      color: var(--text-mute);
+      color: var(--header-link);
       text-decoration: none;
     }
 
-    .site-back:hover { color: var(--text-soft); }
+    .site-back:hover { color: var(--header-link-hover); }
 
     /* Article */
 
     .article {
-      max-width: 720px;
+      max-width: 960px;
       margin: 0 auto 96px;
-      padding: 0 24px;
+      padding: 0 32px;
     }
 
     .article_kicker {
