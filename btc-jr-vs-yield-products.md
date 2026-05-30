@@ -26,6 +26,8 @@ The interesting questions the thought experiment raises:
 2. **Why are BTC yields so low** that yield products haven't been a credible alternative to holding spot?
 3. **What changed**, such that modest leverage on Bitcoin is now actually deliverable in practice?
 
+---
+
 ## Why BTC yields are so low
 
 The BTC yield landscape divides into three architectural categories. Each has structural trade-offs that limit what it can deliver — and the trade-offs explain why the yields you see across the market are what they are.
@@ -64,6 +66,8 @@ The on-chain record confirms it. Two of the most prominent live BTC yield protoc
 | :-- |
 | *On-chain NAVs of two live BTC yield products vs spot BTC, BTC-denominated, Feb 2023 → Nov 2025. **Ribbon V2 BTC Theta Vault: 0.955 BTC** (−1.65%/yr) — visible step-down losses where weekly bull moves breached the covered-call strike. **Aave V3 WBTC lending: 1.003 BTC** (+0.11%/yr). Fetched directly from Ethereum archive RPC: `pricePerShare()` on the Ribbon vault and `getReserveNormalizedIncome(WBTC)` on the Aave V3 Pool.* |
 
+---
+
 ## Why modest leverage hasn't been practical
 
 The thought experiment showed that modest leverage on Bitcoin would have substantially outperformed any of these yield categories. So why hasn't anyone been doing it?
@@ -78,6 +82,8 @@ Portfolio theory hasn't been the obstacle. Kelly (1956), Merton (1969), Samuelso
 These instruments serve their intended use cases — short-duration trading, hedging, speculation — and aren't badly designed for those uses. They're just not the right tool for "moderate leverage on a buy-and-hold position for years." That tool hasn't existed as a practical option.
 
 This is why the simple, obvious answer has stayed unreachable. The math has been clear, and pragmatic BTC holders have correctly avoided the products that exist, because those products would have produced worse outcomes than just holding spot. Until now, "modest leverage on BTC" has been the right answer to the wrong instrument.
+
+---
 
 ## What's new
 
@@ -118,6 +124,8 @@ Kelly's L\* is a property of the asset's drift and volatility, not of the levera
 The architectural details for BTC-Jr specifically — how the funding mechanism works, how the tranches behave, how the financing cost is bounded — are in the *Durable Leverage* paper. BTC-Jr's cost of leverage is anchored to stable-yield demand, not to short demand. That cost spread, applied to a 1.33× leveraged position on a positive-drift asset, is what produces the outperformance the 10-year thought experiment shows.
 
 BTC-Jr at 1.33× delivers what the thought experiment imagined. It is **sensible** — Kelly bounds say modest leverage on a positive-drift asset is growth-maximizing. It is **simple** — no hidden directional bet, no regime-dependent strategy, no upside cap. It is **scrutable** — verifiable mechanism, transparent financing cost, bounded leverage ratio. It is **reliable** — works across regimes, not just bullish ones; doesn't depend on continuing positive funding; doesn't blow up in volatility events. None of the three yield categories is all four of these. BTC-Jr is.
+
+---
 
 ## What this means in practice
 
