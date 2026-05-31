@@ -186,6 +186,8 @@ That is the available answer to how MicroStrategy achieves premium independence.
 
 ### Data & methodology
 
+<div class="appendix" markdown="1">
+
 **Price data.** Daily close prices for MSTR and BTC over Aug 2020 → Dec 2025, fetched via the `yfinance` package (Yahoo Finance historical data).
 
 **MSTR BTC holdings.** Compiled from MicroStrategy's 8-K disclosures of Bitcoin purchases, cross-referenced against [bitbo.io](https://bitbo.io/treasuries/microstrategy/)'s MSTR holdings tracker and [SaylorTracker.com](https://saylortracker.com/). Holdings interpolated linearly between disclosed purchase events.
@@ -201,3 +203,5 @@ That is the available answer to how MicroStrategy achieves premium independence.
 **Architectural specifications.** BTC-Jr's financing cost formula, perpetual-tranching mechanics, productive-band sizing for BTC (the basis for the ~1.3–1.5× optimal-leverage range), and the liquidation-free architecture all originate in the [Durable Leverage paper](https://drive.google.com/file/d/14E0phxNhliy_Qc-kBPPbRAkaedBxe3ma/view?usp=sharing) (Fragments Research, 2026).
 
 **Institutional Sharpe thresholds.** The ~0.5 minimum Sharpe figure cited in the institutional-sizing section is a rough heuristic drawn from manager-evaluation practice across allocators; specific minimums vary materially by allocator class, mandate, and asset category.
+
+</div>
