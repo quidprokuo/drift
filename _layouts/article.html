@@ -310,6 +310,24 @@
       border-top: 1px solid var(--border);
       margin: 3em 0;
     }
+
+    /* Mobile adjustments */
+    @media (max-width: 600px) {
+      .site-header_inner { padding: 0 20px; gap: 12px; }
+      .site-mark { font-size: 20px; }
+      .site-tag { display: none; }
+      .site-back { font-size: 12px; }
+
+      .article { padding: 0 20px; }
+
+      /* Data tables: allow horizontal scroll. Excludes figure-tables (image+caption) which fit naturally. */
+      .article_body table:not(:has(picture)):not(:has(img)) {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        max-width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
