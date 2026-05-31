@@ -180,7 +180,11 @@ That is the available answer to how MicroStrategy achieves premium independence.
 
 ---
 
-## Data & methodology
+*Specific architectural details and the full-cycle empirical analysis are in the [Durable Leverage paper](https://drive.google.com/file/d/14E0phxNhliy_Qc-kBPPbRAkaedBxe3ma/view?usp=sharing) (Fragments Research, 2026). A companion essay, [Moderate Leverage Outperforms Every BTC Yield Product]({{ site.baseurl }}/btc-jr-vs-yield-products/), covers the comparison with passive yield-product alternatives.*
+
+---
+
+### Data & methodology
 
 **Price data.** Daily close prices for MSTR and BTC over Aug 2020 → Dec 2025, fetched via the `yfinance` package (Yahoo Finance historical data).
 
@@ -197,7 +201,3 @@ That is the available answer to how MicroStrategy achieves premium independence.
 **Architectural specifications.** BTC-Jr's financing cost formula, perpetual-tranching mechanics, productive-band sizing for BTC (the basis for the ~1.3–1.5× optimal-leverage range), and the liquidation-free architecture all originate in the [Durable Leverage paper](https://drive.google.com/file/d/14E0phxNhliy_Qc-kBPPbRAkaedBxe3ma/view?usp=sharing) (Fragments Research, 2026).
 
 **Institutional Sharpe thresholds.** The ~0.5 minimum Sharpe figure cited in the institutional-sizing section is a rough heuristic drawn from manager-evaluation practice across allocators; specific minimums vary materially by allocator class, mandate, and asset category.
-
----
-
-*Specific architectural details and the full-cycle empirical analysis are in the [Durable Leverage paper](https://drive.google.com/file/d/14E0phxNhliy_Qc-kBPPbRAkaedBxe3ma/view?usp=sharing) (Fragments Research, 2026). A companion essay, [Moderate Leverage Outperforms Every BTC Yield Product]({{ site.baseurl }}/btc-jr-vs-yield-products/), covers the comparison with passive yield-product alternatives.*
