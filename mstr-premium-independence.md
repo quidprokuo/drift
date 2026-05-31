@@ -1,6 +1,6 @@
 ---
 layout: article
-title: "How MicroStrategy Achieves Premium Independence"
+title: "How MicroStrategy Becomes Premium-Independent"
 tagline: "After five years and 1.49 BTC per starting dollar, MicroStrategy's mNAV has compressed from a 6.3× peak to a 0.77× discount, and the accretion flywheel that funded the BTC accumulation can no longer fund the next round. The strategy is load-bearing on a premium that has, for the moment, stopped paying. Here's the structural move that makes the next round of accumulation premium-independent — and amplifies the flywheel for whenever the premium returns."
 description: "MicroStrategy delivered 1.49 BTC per starting dollar over five years, but the mNAV premium that funded the accretion flywheel has compressed to a 0.77× discount. Here's how protocol-native leverage makes the strategy premium-independent — and asymmetrically amplifies it when the premium returns."
 image: https://frgs3.s3.us-west-1.amazonaws.com/thought_pieces/mstr_vs_spot/fig_mstr_vs_btc_usd.png
@@ -176,7 +176,7 @@ The substitution case isn't a displacement. It's a preservation. Holding BTC-Jr 
 
 Bitcoin treasury companies were a real solution to a real problem, built with the best architecture available when the strategy started. The architecture has improved. The DAT business survives the improvement intact — preserving its structural advantages, shedding the leverage-primitive costs — by adopting the better primitive. The strategy that grew MicroStrategy's BTC-per-share for five years, and is currently stalled by the mNAV that no longer supports it, does not end at this discount. It restarts on infrastructure that does not depend on the premium to function.
 
-That is the available answer to how MicroStrategy achieves premium independence.
+That is the available answer to how MicroStrategy becomes premium-independent.
 
 ---
 
