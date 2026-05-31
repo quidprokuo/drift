@@ -180,4 +180,24 @@ That is the available answer to how MicroStrategy achieves premium independence.
 
 ---
 
+## Data & methodology
+
+**Price data.** Daily close prices for MSTR and BTC over Aug 2020 → Dec 2025, fetched via the `yfinance` package (Yahoo Finance historical data).
+
+**MSTR BTC holdings.** Compiled from MicroStrategy's 8-K disclosures of Bitcoin purchases, cross-referenced against [bitbo.io](https://bitbo.io/treasuries/microstrategy/)'s MSTR holdings tracker and [SaylorTracker.com](https://saylortracker.com/). Holdings interpolated linearly between disclosed purchase events.
+
+**MSTR shares outstanding.** Quarterly snapshots from MicroStrategy's 10-Q filings (Q3 2020 through Q3 2025), with daily values linearly interpolated between quarter-ends.
+
+**mNAV ratio.** Computed daily as (MSTR market cap) / (BTC holdings × BTC close price), using the inputs above.
+
+**Risk metrics.** Sharpe, annualized vol, CAGR, and max drawdown all calculated from daily USD-denominated returns over the same Aug 2020 → Dec 2025 window. Annualized vol = daily vol × √252. Sharpe = (CAGR − r<sub>f</sub>) / annualized vol, with r<sub>f</sub> = 4%. Max drawdown measured against the rolling all-time-high.
+
+**Moderate 1.33× leverage line.** Simulated using a constant-leverage daily-reset model with zero expense ratio and zero financing cost. This is a reference benchmark, not a product specification — BTC-Jr's actual financing cost (≈ (r<sub>f</sub> + 1%) / 3 per dollar of Jr equity, documented in the Durable Leverage paper) represents a bounded drag against this idealized line.
+
+**Architectural specifications.** BTC-Jr's financing cost formula, perpetual-tranching mechanics, productive-band sizing for BTC (the basis for the ~1.3–1.5× optimal-leverage range), and the liquidation-free architecture all originate in the [Durable Leverage paper](https://drive.google.com/file/d/14E0phxNhliy_Qc-kBPPbRAkaedBxe3ma/view?usp=sharing) (Fragments Research, 2026).
+
+**Institutional Sharpe thresholds.** The ~0.5 minimum Sharpe figure cited in the institutional-sizing section is a rough heuristic drawn from manager-evaluation practice across allocators; specific minimums vary materially by allocator class, mandate, and asset category.
+
+---
+
 *Specific architectural details and the full-cycle empirical analysis are in the [Durable Leverage paper](https://drive.google.com/file/d/14E0phxNhliy_Qc-kBPPbRAkaedBxe3ma/view?usp=sharing) (Fragments Research, 2026). A companion essay, [Moderate Leverage Outperforms Every BTC Yield Product]({{ site.baseurl }}/btc-jr-vs-yield-products/), covers the comparison with passive yield-product alternatives.*
