@@ -9,6 +9,7 @@ Articles published here are discoverable from [2factor.finance/research](https:/
 
 ## Recent
 
+- [The Demand for Buy-and-Hold Leverage Is Already Visible — in Perp Capital Distribution]({{ site.baseurl }}/perp-modest-leverage-demand/) — Capital-weighted Hyperliquid analysis: 92% of long-deployer equity at ≤3× leverage; aggregate 0.91×. The dominant perp cohort is buy-and-hold capital paying ~11% to hold what BTC-Jr would deliver at a fraction of the cost.
 - [The Demand for Buy-and-Hold Leverage Is Already Visible — in LETF Holding Periods]({{ site.baseurl }}/letf-holding-period-demand/) — $44B of LETF capital is held past the recommended one-day horizon; the misalignment sizes a much larger latent market.
 - [How MicroStrategy Becomes Premium-Independent]({{ site.baseurl }}/mstr-premium-independence/) — The architectural move that frees the accretion flywheel from the mNAV premium.
 - [Moderate Leverage Outperforms Every BTC Yield Product]({{ site.baseurl }}/btc-jr-vs-yield-products/) — Why the gap persists, and what changed.
