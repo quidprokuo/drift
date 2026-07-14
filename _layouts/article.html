@@ -82,6 +82,12 @@
       font-size: 17px;
       line-height: 1.7;
       margin: 0;
+      /* Bottom padding keeps the white content area extending past the last
+         line (references/footnotes) so the dark html background doesn't butt
+         up against the text. Padding here (not margin on .article) also
+         prevents the child's bottom margin from collapsing through body and
+         rendering as a dark band. */
+      padding-bottom: 120px;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -134,7 +140,7 @@
 
     .article {
       max-width: 960px;
-      margin: 0 auto 96px;
+      margin: 0 auto;
       padding: 0 32px;
     }
 
