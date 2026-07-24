@@ -9,6 +9,7 @@ Articles published here are discoverable from [2factor.finance/research](https:/
 
 ## Recent
 
+- [Tokens Are Dead. HYPE Is Soaring.]({{ site.baseurl }}/tokens-are-dead-hype-is-soaring/) — The three problems that broke tokens — utility, value capture, and the pump-and-dump — have been solved at once, and Hyperliquid is the proof. The market didn't sour on tokens; it sorted them.
 - [The Demand for Buy-and-Hold Leverage Is Already Visible — in Perp Capital Distribution]({{ site.baseurl }}/perp-modest-leverage-demand/) — Among Hyperliquid accounts actually running leverage, 58% of capital sits at ≤3× — concentrated in whale and pro cohorts paying ~11% funding for what BTC-Jr delivers at a fraction of the cost.
 - [The Demand for Buy-and-Hold Leverage Is Already Visible — in LETF Holding Periods]({{ site.baseurl }}/letf-holding-period-demand/) — $44B of LETF capital is held past the recommended one-day horizon; the misalignment sizes a much larger latent market.
 - [How MicroStrategy Becomes Premium-Independent]({{ site.baseurl }}/mstr-premium-independence/) — The architectural move that frees the accretion flywheel from the mNAV premium.
